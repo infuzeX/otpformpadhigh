@@ -6,11 +6,14 @@
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
-    <meta property="og:image" content="https://padhhigh.com/padhhigh.png">
-    <meta property="og:url" content="https://padhhigh.com">
-    <meta name="facebook-domain-verification" content="sc1qdrz1jejykwwnfhw4n36hy9wonj" />
+	<meta property="og:image" content="https://padhhigh.com/padhhigh.png">
+	<meta property="og:url" content="https://padhhigh.com">
+	<meta name="facebook-domain-verification" content="sc1qdrz1jejykwwnfhw4n36hy9wonj" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<!-- Owl Theme Default CSS -->
@@ -35,6 +38,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- Responsive CSS -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="assets/css/otp.css">
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -48,18 +52,22 @@
 </head>
 
 <body>
-	
+
 	<!-- End Preloader Area -->
-
-
-
-
-
-
+	<div class="backdrop1">
+		<div class="popup">
+			<span>&#x1f6c8; OTP SENT TO YOUR NUMBER</span>
+			<form>
+				<input placeholder="Enter 6 Digit OTP" type="number" class="otp">
+				<div id="otp">
+					<span style="visibility:hidden;">testing testing</span>
+				</div>
+				<button onclick="verifyOtp(event)">VERIFY</button>
+			</form>
+		</div>
+	</div>
 	<!-- End Banner Area -->
 
-
-	
 	<section class="banner-area-three jarallax" data-jarallax='{"speed": 0.3}' id="contact">
 		<div class="d-table">
 			<div class="d-table-cell">
@@ -87,6 +95,11 @@
 								</div>
 
 								<form class="courses-form" id="home">
+									
+									<div id="recaptcha"></div>
+									
+									<div id="notify"></div>
+
 									<div class="form-group">
 										<input type="text" class="form-control" name="name" placeholder="Student name"
 											required>
@@ -98,18 +111,18 @@
 									</div>
 
 									<div class="form-group">
-										
-										
-											<select id="select-class" name="select-class">
-												<option value="select">Select Class</option>
-											  <option value="6th">6th</option>
-											  <option value="7th">7th</option>
-											  <option value="8th">8th</option>
-											  <option value="9th">9th</option>
-											  <option value="10th">10th</option>
-											</select>
-										
-										 
+
+
+										<select id="select-class" name="select-class">
+											<option value="select">Select Class</option>
+											<option value="6">6th</option>
+											<option value="7">7th</option>
+											<option value="8">8th</option>
+											<option value="9">9th</option>
+											<option value="10">10th</option>
+										</select>
+
+
 									</div>
 
 									<div class="form-group">
@@ -125,9 +138,7 @@
 											placeholder=" School Name with City" required>
 									</div>
 
-									<div id="captcha">
-
-									</div>
+								
 
 									<button type="submit" class="default-btn">
 										Apply
@@ -152,13 +163,13 @@
 	<!-- End Feature Area -->
 
 	<!-- Start Feedback Area -->
-	
+
 	<!-- End Feedback Area -->
 
 
 
 	<!-- Start Tutor Area -->
-	
+
 	<!-- End Tutor Area -->
 
 	<!-- Start Education Area -->
@@ -175,9 +186,6 @@
 
 
 	<!-- End Go Top Area -->
-	<!--Form js-->
-	<script src="assets/js/form.js"></script>
-
 	<!-- Jquery-3.5.1.Slim.Min.JS -->
 	<script src="assets/js/jquery-3.5.1.slim.min.js"></script>
 	<!-- Popper JS -->
@@ -208,6 +216,9 @@
 	<script src="assets/js/jquery.ajaxchimp.min.js"></script>
 	<!-- Custom JS -->
 	<script src="assets/js/custom.js"></script>
+	<!--otp-formjs-->
+	<script defer src="assets/customJs/otp.js"></script>
+	<script defer src="assets/customJs/contact-otp.js"></script>
 </body>
 
 
